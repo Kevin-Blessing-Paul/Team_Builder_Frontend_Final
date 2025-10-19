@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+<h1>Team Leader Dashboard</h1>
+
+<section class="card">
+  <h2>Post a Team</h2>
+  <form action="/leader/post" method="post" class="form">
+    <label>Team name</label><br />
+    <input name="name" required /><br />
+
+    <label>Description</label><br />
+    <textarea name="description"></textarea><br />
+
+    <label>Required skills (comma separated)</label><br />
+    <input name="skills" placeholder="React, Node" /><br />
+
+    <label>Interests (comma separated)</label><br />
+    <input name="interests" placeholder="AI, Web" /><br />
+
+    <label>Preferred year</label><br />
+    <select name="year">
+      <option value="Any">Any</option>
+      <option value="1">1st</option>
+      <option value="2">2nd</option>
+      <option value="3">3rd</option>
+      <option value="4">4th</option>
+    </select><br />
+
+    <button type="submit">Post Team</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Your Posted Teams (frontend dummy)</h2>
+  <div id="leaderTeams">
+    <% if (teams && teams.length) { %>
+      <% teams.forEach(team => { %>
+        <div class="team-card">
+          <h3><%= team.name %></h3>
+          <p><%= team.description %></p>
+          <p><strong>Skills:</strong> <%= team.skills.join(', ') %></p>
+          <p><strong>Interests:</strong> <%= team.interests.join(', ') %></p>
+          <p><strong>Year:</strong> <%= team.year %></p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No posted teams yet.</p>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

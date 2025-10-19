@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<h1>Login (Frontend only)</h1>
+<p>Choose your role to continue (no real authentication)</p>
+
+<form action="/login" method="post" class="form">
+  <label>Email:</label><br />
+  <input type="email" name="email" required placeholder="you@college.edu" /><br />
+
+  <label>Password:</label><br />
+  <input type="password" name="password" required /><br />
+
+  <label>Role:</label><br />
+  <select name="role">
+    <option value="member">Team Member</option>
+    <option value="leader">Team Leader</option>
+  </select><br />
+
+  <button type="submit">Continue</button>
+</form>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: #f6f7fb;
+  color: #222;
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+
+.nav { margin-bottom: 12px; padding: 8px 0; }
+.nav a { color: #333; text-decoration: none; margin-right: 10px; }
+
+.card { background: white; padding: 16px; margin-bottom: 12px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+
+.form input, .form textarea, .form select { width: 100%; margin: 6px 0 12px 0; padding: 8px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ddd; }
+
+button { padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; background: #2563eb; color: white; }
+
+.team-card { border: 1px solid #eee; padding: 10px; margin-bottom: 8px; border-radius: 4px; }
+.team-card h3 { margin: 0 0 6px 0; }
