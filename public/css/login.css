@@ -1,0 +1,265 @@
+/* Scoped to login page */
+body.login-page {
+  --bg: #0a0a0f;
+  --panel-bg: rgba(20, 20, 35, 0.9);
+  --accent: #00e5ff;
+  --accent-hover: #00c4d9;
+  --text-light: #e1e1e8;
+  --text-muted: #a3a3ad;
+  --input-bg: #1a1a24;
+  --input-border: #333;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #0a0a0f, #06060a 80%);
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glowing background blobs */
+body.login-page::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  filter: blur(200px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+body.login-page::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: #a370ff;
+  filter: blur(200px);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* ===================
+   Feature Cards Section
+   =================== */
+body.login-page .features-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  z-index: 1;
+}
+
+body.login-page .feature-card {
+  flex: 1 1 30%;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(6px);
+}
+
+/* Distinct backgrounds + complementary text */
+body.login-page .feature-1 {
+  background: #ff6b6b;
+  color: #fffacd;
+}
+
+body.login-page .feature-2 {
+  background: #1e90ff;
+  color: #e0ffff;
+}
+
+body.login-page .feature-3 {
+  background: #00c49f;
+  color: #f0fff0;
+}
+
+body.login-page .feature-card h3 {
+  margin-bottom: 0.8rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+body.login-page .feature-card p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+body.login-page .feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* ===================
+   Login Container
+   =================== */
+body.login-page .login-container {
+  background: var(--panel-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease;
+}
+
+body.login-page .login-container h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+body.login-page .login-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ===================
+   Form Elements
+   =================== */
+body.login-page .form-group {
+  margin-bottom: 1.2rem;
+}
+
+body.login-page .form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Unified style for input and select */
+body.login-page .form-group input,
+body.login-page .form-group select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.9rem;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  color: var(--text-light);
+  font-size: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background-image 0.3s;
+}
+
+/* Neon dropdown arrow */
+body.login-page select {
+  padding-right: 2rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px),
+                       calc(100% - 10px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Focus effects (glow) */
+body.login-page .form-group input:focus,
+body.login-page .form-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Neon arrow glow on focus */
+body.login-page select:focus {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px),
+                       calc(100% - 10px) calc(1em + 2px);
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+  }
+}
+
+/* ===================
+   Buttons
+   =================== */
+body.login-page .btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: var(--bg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+body.login-page .btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ===================
+   Animations & Responsive
+   =================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  body.login-page .features-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body.login-page .feature-card {
+    flex: 1 1 80%;
+    margin-bottom: 1rem;
+  }
+
+  body.login-page .login-container {
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body.login-page .login-container {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+}
