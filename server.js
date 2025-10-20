@@ -16,7 +16,10 @@ const teams = [
 ];
 
 app.get('/', (req, res) => res.redirect('/login'));
-app.get('/login', (req, res) => res.render('login'));
+app.get('/login', (req, res) => {
+  res.render('login', { bodyClass: 'login-page' });
+});
+
 app.post('/login', (req, res) => {
   const role = req.body.role;
   if(role === 'leader') return res.redirect('/leader');

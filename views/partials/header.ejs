@@ -4,9 +4,16 @@
   <meta charset="utf-8" />
   <title>College Team Builder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Global site CSS -->
   <link rel="stylesheet" href="/css/style.css" />
+  
+  <!-- Login page CSS (scoped with .login-page) -->
+  <link rel="stylesheet" href="/css/login.css" />
+ 
 </head>
 <body>
+   <body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : '' %>">
   <nav class="nav">
     <a href="/login">Login</a> |
     <a href="/leader">Leader</a> |
