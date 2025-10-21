@@ -1,51 +1,65 @@
 <%- include('partials/header') %>
 
-<h1>Find a Team</h1>
+<main class="container">
 
-<section class="card">
-  <h2>Filter teams</h2>
-  <form id="filterForm" class="form" onsubmit="return false;">
-    <label>Skill (partial match)</label><br />
-    <input id="filterSkill" placeholder="e.g. React" /><br />
+  <!-- Navigation Back to Login (handled by header.ejs based on bodyClass) -->
 
-    <label>Interest</label><br />
-    <input id="filterInterest" placeholder="e.g. AI" /><br />
+  <h1>Find a Team</h1>
 
-    <label>Year</label><br />
-    <select id="filterYear">
-      <option value="">Any</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-    </select><br />
+  <!-- Filter Section -->
+  <section class="card">
+    <h2>Filter Teams</h2>
+    <form id="filterForm" class="form" onsubmit="return false;">
+      <div class="form-group">
+        <label for="filterSkill">Skill (partial match)</label>
+        <input id="filterSkill" placeholder="e.g. React" />
+      </div>
 
-    <button onclick="applyFilters()">Apply</button>
-    <button onclick="resetFilters()">Reset</button>
-  </form>
-</section>
+      <div class="form-group">
+        <label for="filterInterest">Interest</label>
+        <input id="filterInterest" placeholder="e.g. AI" />
+      </div>
 
-<section class="card">
-  <h2>Available Teams</h2>
-  <div id="teamList">
-    <% if (teams && teams.length > 0) { %>
-      <% teams.forEach(team => { %>
-        <div class="team-card" 
-             data-skills="<%= team.skills.join(' ').toLowerCase() %>" 
-             data-interests="<%= team.interests.join(' ').toLowerCase() %>" 
-             data-year="<%= team.year %>">
-          <h3><%= team.name %></h3>
-          <p><%= team.description %></p>
-          <p><strong>Skills:</strong> <%= team.skills.join(', ') %></p>
-          <p><strong>Interests:</strong> <%= team.interests.join(', ') %></p>
-          <p><strong>Year:</strong> <%= team.year %></p>
-          <button type="button" data-team-id="<%= team.id %>" onclick="applyToTeam(this.dataset.teamId)">Apply</button>
-        </div>
-      <% }) %>
-    <% } else { %>
-      <p>No teams available.</p>
-    <% } %>
-  </div>
-</section>
+      <div class="form-group">
+        <label for="filterYear">Year</label>
+        <select id="filterYear">
+          <option value="">Any</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+
+      <button type="button" onclick="applyFilters()">Apply</button>
+      <button type="button" onclick="resetFilters()">Reset</button>
+    </form>
+  </section>
+
+  <!-- Available Teams Section -->
+  <section class="card">
+    <h2>Available Teams</h2>
+    <div id="teamList">
+      <% if (teams && teams.length > 0) { %>
+        <% teams.forEach(team => { %>
+          <div class="team-card"
+               data-skills="<%= team.skills.join(' ').toLowerCase() %>"
+               data-interests="<%= team.interests.join(' ').toLowerCase() %>"
+               data-year="<%= team.year %>">
+            <h3><%= team.name %></h3>
+            <p><%= team.description || '' %></p>
+            <p><strong>Skills:</strong> <%= team.skills.join(', ') %></p>
+            <p><strong>Interests:</strong> <%= team.interests.join(', ') %></p>
+            <p><strong>Year:</strong> <%= team.year %></p>
+            <button type="button" data-team-id="<%= team.id %>" onclick="applyToTeam(this.dataset.teamId)">Apply</button>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No teams available.</p>
+      <% } %>
+    </div>
+  </section>
+
+</main>
 
 <%- include('partials/footer') %>
