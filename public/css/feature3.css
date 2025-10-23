@@ -1,0 +1,36 @@
+
+body {
+  background: radial-gradient(circle at 40% 20%, #002b2b, #001414);
+  color: #fefae0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.feature-content {
+  max-width: 800px;
+  margin: 5rem auto;
+  background: rgba(0, 60, 60, 0.75);
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 196, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+a.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #ffd700;
+  text-decoration: none;
+}
+a.back-link:hover {
+  text-decoration: underline;
+}

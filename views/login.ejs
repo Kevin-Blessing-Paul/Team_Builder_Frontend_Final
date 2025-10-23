@@ -1,22 +1,61 @@
-<%- include('partials/header') %>
+  <%- include('partials/header') %>
 
-<h1>Login (Frontend only)</h1>
-<p>Choose your role to continue (no real authentication)</p>
+<div class="login-page">
+  <!-- Features / Articles Section -->
+  <div class="features-container">
+    <a href="/feature1" class="feature-card feature-1">
+      <h3>Site Features</h3>
+      <p>Explore the tools and utilities our site provides to simplify team creation and collaboration.</p>
+    </a>
 
-<form action="/login" method="post" class="form">
-  <label>Email:</label><br />
-  <input type="email" name="email" required placeholder="you@college.edu" /><br />
+    <a href="/feature2" class="feature-card feature-2">
+      <h3>Coming Soon</h3>
+      <p>See what exciting features and integrations are planned for future updates.</p>
+    </a>
 
-  <label>Password:</label><br />
-  <input type="password" name="password" required /><br />
+    <a href="/feature3" class="feature-card feature-3">
+      <h3>Use Cases</h3>
+      <p>Learn how our platform supports projects, competitions, and college collaborations.</p>
+    </a>
+  </div>
 
-  <label>Role:</label><br />
-  <select name="role">
-    <option value="member">Team Member</option>
-    <option value="leader">Team Leader</option>
-  </select><br />
+ 
+  </div>
 
-  <button type="submit">Continue</button>
-</form>
+
+
+
+
+  <div class="login-container">
+    <h1>Team Builder</h1>
+    <p class="login-subtitle">Choose your role</p>
+
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="you@college.edu" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <select id="role" name="role">
+          <option value="member">Team Member</option>
+          <option value="leader">Team Leader</option>
+        </select>
+      </div>
+       <div class="extra-links">
+         <a href="/signup">Sign Up</a>
+    <a href="/forgot-password">Forgot Password?</a>
+   
+  </div>
+      <button type="submit" class="btn">Continue</button>
+    </form>
+  </div>
+</div>
 
 <%- include('partials/footer') %>

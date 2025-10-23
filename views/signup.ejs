@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<div class="form-page">
+  <h1>Create an Account</h1>
+  <form>
+    <label>Full Name</label>
+    <input type="text" name="name" required />
+
+    <label>Email</label>
+    <input type="email" name="email" required />
+
+    <label>Password</label>
+    <input type="password" name="password" required />
+
+    <label>Confirm Password</label>
+    <input type="password" name="confirmPassword" required />
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <a href="/login" class="back-link">← Back to Login</a>
+</div>
+
+<%- include('partials/footer') %>
