@@ -16,13 +16,31 @@ const teams = [
 ];
 
 app.get('/', (req, res) => res.redirect('/login'));
-app.get('/login', (req, res) => res.render('login'));
+
+// Feature pages
+
+
+app.get('/feature1', (req, res) => res.render('feature1', { bodyClass: 'dark-page' }));
+app.get('/feature2', (req, res) => res.render('feature2', { bodyClass: 'dark-page' }));
+app.get('/feature3', (req, res) => res.render('feature3', { bodyClass: 'dark-page' }));
 app.post('/login', (req, res) => {
   const role = req.body.role;
   if(role === 'leader') return res.redirect('/leader');
   return res.redirect('/member');
 });
-app.get('/leader', (req, res) => res.render('leader', { teams }));
+app.get('/login', (req, res) => {
+  res.render('login', { bodyClass: 'login-page' });
+});
+
+app.get('/leader', (req, res) => {
+  res.render('leader', { teams, bodyClass: 'dark-page' });
+});
+
+// Member page
+app.get('/member', (req, res) => {
+  res.render('member', { teams, bodyClass: 'dark-page' });
+});;
+
 app.post('/leader/post', (req, res) => {
   const { name, skills, interests, year } = req.body;
   const newTeam = {
@@ -35,7 +53,8 @@ app.post('/leader/post', (req, res) => {
   teams.push(newTeam);
   res.redirect('/leader');
 });
-app.get('/member', (req, res) => res.render('member', { teams }));
+
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Frontend running at http://localhost:${PORT}`));
+
